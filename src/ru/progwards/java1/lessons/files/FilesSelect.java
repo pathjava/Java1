@@ -84,7 +84,7 @@ public class FilesSelect {
     public static void main(String[] args) {
         FilesSelect test = new FilesSelect();
         List<String> testList = new ArrayList<>(List.of("new", "copy", "testingKey"));
-        test.selectFiles("C:\\Intellij Idea\\programming\\Java1\\src\\ru\\progwards\\java1\\lessons\\files\\inFolder",
-                "C:\\Intellij Idea\\programming\\Java1\\src\\ru\\progwards\\java1\\lessons\\files\\outFolder", testList);
+        test.selectFiles("src\\ru\\progwards\\java1\\lessons\\files\\inFolder",
+                "src\\ru\\progwards\\java1\\lessons\\files\\outFolder", testList);
     }
 }

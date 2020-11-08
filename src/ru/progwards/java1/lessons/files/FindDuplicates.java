@@ -89,7 +89,7 @@ public class FindDuplicates {
     public static void main(String[] args) {
         FindDuplicates test = new FindDuplicates();
 
-        for (List<String> duplicate : test.findDuplicates("C:\\Intellij Idea\\programming\\Java1\\src\\ru\\progwards\\java1\\lessons\\files\\rootdir")) {
+        for (List<String> duplicate : test.findDuplicates("src\\ru\\progwards\\java1\\lessons\\files\\rootdir")) {
             System.out.println(duplicate);
         }
 

@@ -190,7 +190,7 @@ public class OrderProcessor {
 
 
     public static void main(String[] args) {
-        OrderProcessor test = new OrderProcessor("C:\\Intellij Idea\\programming\\Java1\\src\\ru\\progwards\\java1\\lessons\\files\\orders");
+        OrderProcessor test = new OrderProcessor("src\\ru\\progwards\\java1\\lessons\\files\\orders");
 
         System.out.println(test.loadOrders(null, null, null));
 //        System.out.println(test.loadOrders(LocalDate.now().minusDays(5), LocalDate.now(), null));
