@@ -70,6 +70,8 @@ public class BinaryExample {
 
         System.out.println("Test brunch 6");
 
+        System.out.println("Test brunch 7");
+
     }
 
 }
