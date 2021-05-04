@@ -57,6 +57,10 @@ public class BinaryExample {
 //        System.out.println();
 //
 //        getActiveParticipantsFlags().forEach(System.out::println);
+
+        System.out.println("Test Kraken");
+
+        System.out.println("!!!!!!!!!!!!!!!!!!");
     }
 
 }
