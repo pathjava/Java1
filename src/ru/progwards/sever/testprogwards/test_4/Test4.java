@@ -9,7 +9,7 @@ package ru.progwards.sever.testprogwards.test_4;
 import java.util.Arrays;
 
 //public class Test4 {
-//    public static void main(String[] args) {
+//    public static void ru.progwards.sever.testprogwards.example.main(String[] args) {
 //        int[] array = new int[] {1, 2, 3};
 //        int num = 5;
 //        System.out.println(Arrays.toString(array));

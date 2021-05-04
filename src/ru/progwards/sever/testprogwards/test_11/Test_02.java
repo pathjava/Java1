@@ -16,12 +16,18 @@ public class Test_02 {
 
         List<Integer> result;
 
-        if (list instanceof ArrayList) result = new ArrayList<>();
-        else if (list instanceof LinkedList) result = new LinkedList<>();
-        else if (list instanceof Vector) result = new Vector<>();
-        else if (list instanceof Stack) result = new Stack<>();
-        else if (list instanceof List) result = new ArrayList<>();
-        else throw new RuntimeException("Unknown 'list' type!");
+        if (list instanceof ArrayList)
+            result = new ArrayList<>();
+        else if (list instanceof LinkedList)
+            result = new LinkedList<>();
+        else if (list instanceof Vector)
+            result = new Vector<>();
+        else if (list instanceof Stack)
+            result = new Stack<>();
+        else if (list instanceof List)
+            result = new ArrayList<>();
+        else
+            throw new RuntimeException("Unknown 'list' type!");
 
 //        int drop = sum / 100;
 //        for (Integer e : list) {

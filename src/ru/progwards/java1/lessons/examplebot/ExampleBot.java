@@ -120,7 +120,7 @@
 //        return "Я не понял, возможно у нас этго нет, попробуй сказать по другому. " + menu;
 //    }
 //
-//    public static void main(String[] args) {
+//    public static void ru.progwards.sever.testprogwards.example.main(String[] args) {
 //        System.out.println("Hello bot!");
 //        ApiContextInitializer.init();
 //

@@ -12,14 +12,30 @@ public class CyclesGoldenFibo {
         return false;
     }
 
+//    public static int fiboNumber(int n) {
+//        if (n == 0) {
+//            return 0;
+//        } else if (n == 1) {
+//            return 1;
+//        } else {
+//            return fiboNumber(n - 1) + fiboNumber(n - 2);
+//        }
+//    }
+
     public static int fiboNumber(int n) {
-        if (n == 0) {
-            return 0;
-        } else if (n == 1) {
-            return 1;
-        } else {
-            return fiboNumber(n - 1) + fiboNumber(n - 2);
+        if(n == 0 || n == 1)
+            return n;
+
+        int n0 = 0;
+        int n1 = 1;
+        int fibo = 0;
+
+        for (int i = 2; i <= n; i++) {
+            fibo = n0 + n1;
+            n0 = n1;
+            n1 = fibo;
         }
+        return fibo;
     }
 
     // решение дал Григорий

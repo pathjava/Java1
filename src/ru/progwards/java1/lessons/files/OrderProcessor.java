@@ -4,10 +4,13 @@ import java.io.IOException;
 import java.nio.file.*;
 import java.nio.file.attribute.BasicFileAttributes;
 import java.nio.file.attribute.FileTime;
-import java.time.*;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZoneOffset;
 import java.util.*;
 
-/* в самом низу после тестов есть код с комментариями, но пока писал комментари, где-то сломал код, пришлось откатиться назад */
+/* в самом низу после тестов есть код с комментариями, но пока писал комментарии, где-то сломал код, пришлось откатиться назад */
 public class OrderProcessor {
     private final Path startPath;
     private int errorFile = 0;
@@ -28,10 +31,14 @@ public class OrderProcessor {
                     if (pathMatcher.matches(path) && checkTimeModifiedAndShopId(path, start, finish, shopId)) {
                         if (checkOrderItem(path)) {
                             Order order = new Order();
-                            String[] segmentsFileName = path.getFileName().toString().substring(0, path.getFileName().toString().lastIndexOf(".")).split("-");
-                            if (segmentsFileName[0].length() == 3) order.shopId = segmentsFileName[0];
-                            if (segmentsFileName[1].length() == 6) order.orderId = segmentsFileName[1];
-                            if (segmentsFileName[2].length() == 4) order.customerId = segmentsFileName[2];
+                            String[] segmentsFileName = path.getFileName().toString()
+                                    .substring(0, path.getFileName().toString().lastIndexOf(".")).split("-");
+                            if (segmentsFileName[0].length() == 3)
+                                order.shopId = segmentsFileName[0];
+                            if (segmentsFileName[1].length() == 6)
+                                order.orderId = segmentsFileName[1];
+                            if (segmentsFileName[2].length() == 4)
+                                order.customerId = segmentsFileName[2];
                             FileTime fileTime = null;
                             try {
                                 fileTime = Files.getLastModifiedTime(Paths.get(String.valueOf(path)));
@@ -60,7 +67,6 @@ public class OrderProcessor {
     }
 
     private boolean checkTimeModifiedAndShopId(Path path, LocalDate start, LocalDate finish, String shopId) {
-        boolean checkTime = false;
         String checkShopId = path.getFileName().toString().substring(0, 3);
         if (checkShopId.equals(shopId) || shopId == null) {
             FileTime fileTime = null;
@@ -73,19 +79,21 @@ public class OrderProcessor {
             LocalDate modifiedDate = LocalDate.ofInstant(fileTime.toInstant(), ZoneOffset.UTC);
             long timeInSeconds = modifiedDate.atStartOfDay(ZoneOffset.UTC).toInstant().toEpochMilli();
             long startInSeconds = 0;
-            if (start != null) {
+            if (start != null)
                 startInSeconds = start.atStartOfDay(ZoneOffset.UTC).toInstant().toEpochMilli();
-            }
             long finishInSeconds = 0;
-            if (finish != null) {
+            if (finish != null)
                 finishInSeconds = finish.atStartOfDay(ZoneOffset.UTC).toInstant().toEpochMilli();
-            }
-            if (startInSeconds == 0 && finishInSeconds == 0) return true;
-            if (startInSeconds == 0 && timeInSeconds <= finishInSeconds) return true;
-            if (finishInSeconds == 0 && timeInSeconds >= startInSeconds) return true;
-            if (timeInSeconds >= startInSeconds && timeInSeconds <= finishInSeconds) checkTime = true;
+            if (startInSeconds == 0 && finishInSeconds == 0)
+                return true;
+            if (startInSeconds == 0 && timeInSeconds <= finishInSeconds)
+                return true;
+            if (finishInSeconds == 0 && timeInSeconds >= startInSeconds)
+                return true;
+            if (timeInSeconds >= startInSeconds && timeInSeconds <= finishInSeconds)
+                return true;
         }
-        return checkTime;
+        return false;
     }
 
     private boolean checkOrderItem(Path path) {
@@ -135,11 +143,10 @@ public class OrderProcessor {
     public List<Order> process(String shopId) {
         List<Order> sortedList = new ArrayList<>();
         for (Order sortTime : listOrder) {
-            if (shopId == null) {
+            if (shopId == null)
                 sortedList.add(sortTime);
-            } else if (sortTime.getShopId().equals(shopId)) {
+            else if (sortTime.getShopId().equals(shopId))
                 sortedList.add(sortTime);
-            }
         }
         Collections.sort(sortedList, new Comparator<Order>() {
             @Override
@@ -155,9 +162,9 @@ public class OrderProcessor {
         Map<String, Double> salesVolumesList = new TreeMap<>();
         for (Order order : listOrder) {
             double fullSum = order.getSum();
-            if (salesVolumesList.containsKey(order.getShopId())) {
+            if (salesVolumesList.containsKey(order.getShopId()))
                 fullSum += salesVolumesList.get(order.getShopId());
-            }
+
             salesVolumesList.put(order.getShopId(), fullSum);
         }
         return salesVolumesList;
@@ -167,9 +174,9 @@ public class OrderProcessor {
         Map<String, Double> salesGoodsList = new TreeMap<>();
         for (Order order : listOrder) {
             double fullSum = order.getSum();
-            if (salesGoodsList.containsKey(order.items.listIterator().next().googsName)) {
+            if (salesGoodsList.containsKey(order.items.listIterator().next().googsName))
                 fullSum += salesGoodsList.get(order.items.listIterator().next().googsName);
-            }
+
             salesGoodsList.put(order.items.listIterator().next().googsName, fullSum);
         }
         return salesGoodsList;
@@ -180,9 +187,9 @@ public class OrderProcessor {
         for (Order order : listOrder) {
             LocalDate localDate = order.getDatetime().toLocalDate();
             double fullSum = order.getSum();
-            if (salesDateList.containsKey(localDate)) {
+            if (salesDateList.containsKey(localDate))
                 fullSum += salesDateList.get(localDate);
-            }
+
             salesDateList.put(localDate, fullSum);
         }
         return salesDateList;
