@@ -179,7 +179,7 @@ public class OrderProcessor {
     }
 
 
-    public static void main(String[] args) {
+    public static void ru.progwards.sever.testprogwards.example.main(String[] args) {
         OrderProcessor test = new OrderProcessor("C:\\Intellij Idea\\programming\\HelloWorld\\src\\ru\\progwards\\java1\\lessons\\files\\orders");
 
         System.out.println(test.loadOrders(null, null, null));

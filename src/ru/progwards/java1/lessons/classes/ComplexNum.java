@@ -1,7 +1,8 @@
 package ru.progwards.java1.lessons.classes;
 
 public class ComplexNum {
-    private int a, b;
+    private final int a;
+    private final int b;
 
     public ComplexNum(int a, int b) {
         this.a = a;
@@ -26,10 +27,12 @@ public class ComplexNum {
     }
 
     public ComplexNum div(ComplexNum num1, ComplexNum num2) {
-        return new ComplexNum((num1.a * num2.a + num1.b * num2.b) / (num2.a * num2.a + num2.b * num2.b), (num1.b * num2.a - num1.a * num2.b) / (num2.a * num2.a + num2.b * num2.b));
+        return new ComplexNum((num1.a * num2.a + num1.b * num2.b) / (num2.a * num2.a + num2.b * num2.b),
+                (num1.b * num2.a - num1.a * num2.b) / (num2.a * num2.a + num2.b * num2.b));
     }
 
-    // вывести результаты получилось только после подсказки Григория - сам проверял варианты близкие к правильному решению, но верного не нашел
+    // вывести результаты получилось только после подсказки Григория -
+    // сам проверял варианты близкие к правильному решению, но верного не нашел
     public static void main(String[] args) {
         ComplexNum a = new ComplexNum(2, 3);
         ComplexNum b = new ComplexNum(3, 2);

@@ -9,7 +9,7 @@ package ru.progwards.sever.testprogwards.test_5;
 import java.math.BigDecimal;
 
 public class Test5 {
-    //    public static void main(String[] args)
+    //    public static void ru.progwards.sever.testprogwards.example.main(String[] args)
 //    {
 //        // Creating BigDecimal object
 //        BigDecimal b1

@@ -19,7 +19,7 @@ public class DIntArray {
         int[] b = new int[a.length + 1];
         //копируем массив от 0, в конце остается +1 ячейка
         System.arraycopy(a, 0, b, 0, a.length);
-        //помещаем num в конец массива (присваивваем ячейке)
+        //помещаем num в конец массива (присваиваем ячейке)
         b[a.length] = num;
         //присваиваем b в a
         a = b;
@@ -32,7 +32,7 @@ public class DIntArray {
         System.arraycopy(a, 0, b, 0, pos);
         //копируем массив от значения позиции +1 до конца массива
         System.arraycopy(a, pos, b, pos + 1, a.length - pos);
-        //помещааем num в pos (присваивваем ячейке)
+        //помещаем num в pos (присваиваем ячейке)
         b[pos] = num;
         //присваиваем b в a
         a = b;
@@ -43,7 +43,7 @@ public class DIntArray {
         int[] b = new int[a.length - 1];
         //копируем массив от 0 до pos
         System.arraycopy(a, 0, b, 0, pos);
-        //копируем массив от pos +1 в индексе до конца, уменьшая длинну массива на -1
+        //копируем массив от pos +1 в индексе до конца, уменьшая длину массива на -1
         System.arraycopy(a, pos + 1, b, pos, a.length - pos - 1);
         //присваиваем b в a
         a = b;
@@ -63,7 +63,7 @@ public class DIntArray {
 
     public static void main(String[] args) {
         DIntArray dIntArray = new DIntArray();
-        // как сделать вызов массива для теста из main так и не понял
+        // как сделать вызов массива для теста из ru.progwards.sever.testprogwards.example.main так и не понял
         //int[] arr = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
         dIntArray.add(12);
         dIntArray.add(10);

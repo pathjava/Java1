@@ -18,7 +18,7 @@ class Test {
         int result = -a + b - c + d;
         System.out.println(result);
 
-
+        System.out.println(intToGrade(3));
     }
 
 

@@ -1,7 +1,7 @@
 package ru.progwards.sever.testprogwards.test_6;
 
 // Java program deals with all operation of a dynamic array
-// add, remove, resize memory of array is the main feature
+// add, remove, resize memory of array is the ru.progwards.sever.testprogwards.example.main feature
 public class DynamicArray {
 
     // create three variable array[] is a array,

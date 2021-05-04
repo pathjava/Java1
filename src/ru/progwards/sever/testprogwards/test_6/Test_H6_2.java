@@ -3,7 +3,7 @@ package ru.progwards.sever.testprogwards.test_6;
 import java.util.Arrays;
 
 //public class Test_H6_2 {
-//    public static void main(String[] args) {
+//    public static void ru.progwards.sever.testprogwards.example.main(String[] args) {
 //        int [] mas = {11, 3, 14, 16, 7};
 //
 //        boolean isSorted = false;
