@@ -57,6 +57,8 @@ public class BinaryExample {
 //        System.out.println();
 //
 //        getActiveParticipantsFlags().forEach(System.out::println);
+
+        System.out.println("111111111111111111");
     }
 
 }
