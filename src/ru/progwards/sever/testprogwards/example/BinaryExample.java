@@ -64,6 +64,8 @@ public class BinaryExample {
 
         System.out.println("!!!!!!!!!!!!!!!!!!");
 
+        System.out.println("Test brunch 4");
+
     }
 
 }
